@@ -1,0 +1,64 @@
+.pop-up-container {
+    background-image: url("./background-desktop.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    /* width: 600px; */
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.close {
+    margin-left: auto;
+}
+
+.close:hover {
+    background-color: #0d0d0d;
+    color: #fff;
+}
+
+.text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.use-code, .title, .countdown, .offer-ends {
+    text-align: center;
+}
+
+@media only screen and (max-width: 425px){
+
+    .pop-up-container {
+        background-image: url("./background-mobile.jpeg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* width: 300px; */
+    }
+}
+
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
