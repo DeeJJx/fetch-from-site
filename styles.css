@@ -1,21 +1,38 @@
+body {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    min-height:100vh;
+    align-items: center;
+  }
+
 .pop-up-container {
     background-image: url("./background-desktop.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     color: #fff;
-    /* width: 600px; */
-    max-width: 600px;
+    width: 600px;
     display: flex;
     flex-direction: column;
     padding: 5px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
-.hidden {
-    visibility: hidden;
+.pop-up-container p {
+    font-weight: 100;
+}
+
+.code, .discounted-price {
+    font-weight: 600;
 }
 
 .close {
     margin-left: auto;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    font-weight: 600;
+    padding: 5px 10px 0 0;
 }
 
 .close:hover {
@@ -34,31 +51,36 @@
     text-align: center;
 }
 
+.offer-ends {
+    font-size: 0.8rem;
+}
+
+.title {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: 30px 30px 15px 30px;
+}
+
 @media only screen and (max-width: 425px){
 
     .pop-up-container {
         background-image: url("./background-mobile.jpeg");
         background-repeat: no-repeat;
         background-size: cover;
-        /* width: 300px; */
+        width: 300px;
     }
 }
 
-
-/* Toggle this class when clicking on the popup container (hide and show the popup) */
-.show {
+ /* Fade-In Effect */
+ .show {
     visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s
-  }
-  
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity: 1;}
-  }
-  
-  @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-  }
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+/* Fade-Out Effect */
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s 0.5s, opacity 0.5s linear;
+}
+

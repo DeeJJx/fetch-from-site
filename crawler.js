@@ -23,4 +23,3 @@ const getProductPrice = async (webUrl) => {
 let price = getProductPrice('https://www.fatface.com/women/clothing/skirts/jennie-geo-skirt/976998.html?dwvar_976998_color=black#q=jennie+geo+skirt&lang=en_GB&start=1')
 .then((productPrice) => console.log(productPrice));
 
-export {price}; 

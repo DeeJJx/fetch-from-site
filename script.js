@@ -1,31 +1,27 @@
-window.setTimeout(enablePopUp, 1000)
-
-fetch('http://www.fatface.com/women/clothing/skirts/jennie-geo-skirt/976998.html?dwvar_976998_color=black#q=jennie+geo+skirt&lang=en_GB&start=1',
-{
-  mode: 'no-cors',
-  headers: {
-    'Content-Type': 'application/json'
+window.setTimeout(enablePopUp, 1000);
+window.addEventListener('mouseup', function(event){
+  let box = document.querySelector('.pop-up-container');
+  //childNodes may be able to shorten this
+  if(event.target != box && event.target.parentNode != box && event.target.parentNode.parentNode != box && event.target.parentNode.parentNode.parentNode != box){
+    box.classList.remove('show');
+    box.classList.add('hidden');
   }
-}).then(function (response) {
-	// The API call was successful!
-	return response.text();
-}).then(function (html) {
-	// This is the JSON from our response
-  let parser = new DOMParser();
-  let doc = parser.parseFromString(html, 'text/html');
+})
 
-  let price = doc.querySelector('.b-price__digit');
-  console.log(price);
-	console.log(html);
-}).catch(function (err) {
-	// There was an error
-	console.warn('Something went wrong.', err);
-});
+/* let priceDiv = document.querySelector(".b-price__digit")
+let priceAtt = priceDiv.getAttribute("content") */
 
+let price = 42;
+
+function discountedPrice(price){
+  return (price * 0.8).toFixed(2);
+}
 
 const popUp = document.querySelector(".pop-up-container");
 
 const reducedPrice = document.querySelector(".discounted-price");
+
+reducedPrice.innerHTML = '£' + discountedPrice(price);
 
 const closePop = document.querySelector(".close");
 
